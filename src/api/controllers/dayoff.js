@@ -549,13 +549,11 @@ const Dayoff = {
     },
 
     // gère apppel des jours feriés
-    async getHolidays(req,res) {
-        try{
-            const year = req.params.year;
-            console.log(year);
-            const holidays = await DayoffService.getHolidays(year);
+    async getHolidays(req, res) {
+        try {
+            const holidays = await DayoffService.getHolidays(req.params.year);
             res.status(200).json(holidays);
-        } catch {
+        } catch (err) {
             res.error(err);
         }
     }
