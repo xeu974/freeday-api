@@ -356,7 +356,7 @@ const Dayoff = {
                 ...dayoffData
             }, true);
         }
-        // réinitialise statut absence après modification (ce qu'on ne veut pas)
+        // change ou non le statut absence selon modifications
         const edit = await DayoffService.isDifferent(resultGet, dayoffData);
         if (!edit) {
             dayoffData.canceled = data.canceled;
